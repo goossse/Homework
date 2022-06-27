@@ -1,0 +1,25 @@
+﻿@using Homework.Models
+@using Homework.Models.ViewModels
+@Model UserViewModel
+
+<h2>Create Service</h2>
+<form method = "post">
+    <p>
+        <label>Title:</label><br />
+        <input type="text" name="Title" />
+    </p>
+    <p>
+        <label>Info:</label><br />
+        <textarea name="Info"></textarea>
+    </p>
+         <label>Выберите пользователя:</label>
+    <select name="userId" >
+    @foreach(UserViewModel user in Model)
+    {
+        <option value="@user.Id">@user.Name @user.Surname</option>
+    }
+    </select>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+</form>

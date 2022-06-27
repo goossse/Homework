@@ -1,0 +1,22 @@
+﻿@using Homework.Models
+@using Homework.Models.ViewModels
+@model ServicesViewModel
+
+<form>
+     <label>Выберите пользователя:</label>
+    <select name="userId" >
+        @foreach(UserViewModel user in Model.Users)
+        {
+            <option value="@user.Id">@user.Name @user.Surname</option>
+        }
+    </select>
+    <input type="submit" value="Выбрать"/>
+</form>
+<br />
+<table>
+    <tr><td>Name</td><td>Date</td><td>Price</td></tr>
+    @foreach (Service s in Model.Services)
+    {
+        <tr><td>@s.Title</td><td>@s.CreatedDate</td><td>Price</td></tr>
+    }
+</table>
